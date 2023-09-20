@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-EpcafeApplication<epcafe>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.arquitetura.epcafe.EpcafeApplication",
+            "projectName": "epcafe",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
