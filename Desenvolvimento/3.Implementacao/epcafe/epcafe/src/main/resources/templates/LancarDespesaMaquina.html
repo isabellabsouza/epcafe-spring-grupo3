@@ -15,63 +15,62 @@
     <h3>Despesas com Máquinas</h3>
 
     <div class="container">
-        <div class="row my-2">
-            <div class="col col-2">
-                Mês/Ano*
+        <form th:object="${despesaMaquina}" action="/lancarDespesaMaquina" method="POST">
+            <div class="row my-2">
+                <div class="col col-2">
+                    Mês/Ano*
+                </div>
+                <div class="col">
+                    <input th:field="*{mesAno}" type="date" class="form-control">
+                </div>
             </div>
-            <div class="col">
-                <input type="date" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+            <div class="row my-2">
+                <div class="col col-2">
+                    Máquina *
+                </div>
+                <div class="col">
+                    <select th:field="*{maquina}" class="form-control">
+                        <!-- MARK: Options dinamicas -->
+                    </select>
+                </div>
             </div>
-        </div>
-        <div class="row my-2">
-            <div class="col col-2">
-                Máquina *
+            <div class="row my-2">
+                <div class="col col-2">
+                    Preço (l/KWh)
+                </div>
+                <div class="col">
+                    <input th:field="*{precoCombustivel}" type="text" class="form-control" placeholder="">
+                </div>
             </div>
-            <div class="col">
-                <select class="form-control" name="" id="">
-                    <option selected>Select one</option>
-                    <option value="">New Delhi</option>
-                    <option value="">Istanbul</option>
-                    <option value="">Jakarta</option>
-                </select>
+            <div class="row my-2">
+                <div class="col col-2">
+                    Fator de Potência
+                </div>
+                <div class="col">
+                    <select th:field="*{fatorPotencia}" class="form-control">
+                        <!-- MARK: Options dinamicas -->
+                    </select>
+                </div>
             </div>
-        </div>
-        <div class="row my-2">
-            <div class="col col-2">
-                Preço (l/KWh)
+            <div class="row my-2">
+                <div class="col col-2">
+                    Horas Trabalhadas*
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                </div>
             </div>
-            <div class="col">
-                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+            <div class="row my-2">
+                <div class="col">
+                    <button type="submit" class="btn btn-success"><i class="bi bi-floppy"></i> Salvar</button>
+                    <button type="reset" class="btn btn-warning text-light"><i class="bi bi-trash3-fill"></i>
+                        Limpar</button>
+                </div>
             </div>
-        </div>
-        <div class="row my-2">
-            <div class="col col-2">
-                Fator de Potência
-            </div>
-            <div class="col">
-                <select class="form-control" name="" id="">
-                    <option selected>Select one</option>
-                    <option value="">New Delhi</option>
-                    <option value="">Istanbul</option>
-                    <option value="">Jakarta</option>
-                </select>
-            </div>
-        </div>
-        <div class="row my-2">
-            <div class="col col-2">
-                Horas Trabalhadas*
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-            </div>
-        </div>
-        <div class="row my-2">
-            <div class="col">
-                <button type="button" class="btn btn-success"><i class="bi bi-floppy"></i> Salvar</button>
-                <button type="button" class="btn btn-warning text-light"><i class="bi bi-trash3-fill"></i> Limpar</button>
-            </div>
-        </div>
+        </form>
     </div>
+
+
     <div class="container">
         <table class="table">
             <thead>
