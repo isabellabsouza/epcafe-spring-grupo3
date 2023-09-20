@@ -30,6 +30,7 @@
                 </div>
                 <div class="col">
                     <select th:field="*{maquina}" class="form-control">
+                        <option th:each="maquina : ${maquinas}" th:text="${maquina.nome}" th:value="${maquina.id}"></option>
                         <!-- MARK: Options dinamicas -->
                     </select>
                 </div>
@@ -39,7 +40,7 @@
                     Preço (l/KWh)
                 </div>
                 <div class="col">
-                    <input th:field="*{precoCombustivel}" type="text" class="form-control" placeholder="">
+                    <input  th:field="*{precoCombustivel}" type="text" class="form-control" placeholder="">
                 </div>
             </div>
             <div class="row my-2">
@@ -48,7 +49,11 @@
                 </div>
                 <div class="col">
                     <select th:field="*{fatorPotencia}" class="form-control">
-                        <!-- MARK: Options dinamicas -->
+                        <option th:each="fatorPotencia : ${T(com.arquitetura.epcafe.enums.FatorPotencia).values()}" 
+                                th:text="${fatorPotencia}" 
+                                th:value="${fatorPotencia}">
+                        </option>
+                        </option>
                     </select>
                 </div>
             </div>
@@ -57,7 +62,7 @@
                     Horas Trabalhadas*
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                    <input th:field="*{horasTrabalhadas}" type="number" class="form-control">
                 </div>
             </div>
             <div class="row my-2">
