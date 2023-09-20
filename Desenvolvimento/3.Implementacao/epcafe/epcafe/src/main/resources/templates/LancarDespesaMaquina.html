@@ -1,13 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <title>Lancar Despesa Maquina</title>
 </head>
+
 <body>
-    
+    <h3>Despesas com Máquinas</h3>
+
+    <div class="container">
+        <div class="row my-2">
+            <div class="col col-2">
+                Mês/Ano*
+            </div>
+            <div class="col">
+                <input type="date" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col col-2">
+                Máquina *
+            </div>
+            <div class="col">
+                <select class="form-control" name="" id="">
+                    <option selected>Select one</option>
+                    <option value="">New Delhi</option>
+                    <option value="">Istanbul</option>
+                    <option value="">Jakarta</option>
+                </select>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col col-2">
+                Preço (l/KWh)
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col col-2">
+                Fator de Potência
+            </div>
+            <div class="col">
+                <select class="form-control" name="" id="">
+                    <option selected>Select one</option>
+                    <option value="">New Delhi</option>
+                    <option value="">Istanbul</option>
+                    <option value="">Jakarta</option>
+                </select>
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col col-2">
+                Horas Trabalhadas*
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+            </div>
+        </div>
+        <div class="row my-2">
+            <div class="col">
+                <button type="button" class="btn btn-success"><i class="bi bi-floppy"></i> Salvar</button>
+                <button type="button" class="btn btn-warning text-light"><i class="bi bi-trash3-fill"></i> Limpar</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Mês/Ano</td>
+                    <td>Máquina</td>
+                    <td>Combustível</td>
+                    <td>Fator Potência</td>
+                    <td>Valor Total (R$)</td>
+                    <td>Preço Combustível</td>
+                    <td>Operações</td>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
