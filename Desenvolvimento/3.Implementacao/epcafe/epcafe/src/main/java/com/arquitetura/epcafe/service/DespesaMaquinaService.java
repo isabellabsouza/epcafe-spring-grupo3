@@ -21,4 +21,10 @@ public class DespesaMaquinaService {
     public List<DespesaMaquina> findAll() {
         return this.despesaMaquinaRepository.findAll();
     }
+
+    public List<DespesaMaquina> findPaginated(int currPage, int pageSize) {
+        int start = (currPage-1)*pageSize;
+        int end = Math.min(start+pageSize, this.despesaMaquinaRepository.findAll().size());
+        return this.despesaMaquinaRepository.findAll().subList(start, end);
+    }
 }

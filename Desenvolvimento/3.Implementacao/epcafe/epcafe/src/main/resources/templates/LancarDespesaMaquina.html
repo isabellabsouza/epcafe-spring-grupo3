@@ -49,9 +49,9 @@
                 </div>
                 <div class="col">
                     <select th:field="*{fatorPotencia}" class="form-control">
-                        <option th:each="fatorPotencia : ${T(com.arquitetura.epcafe.enums.FatorPotencia).values()}" 
-                                th:text="${fatorPotencia}" 
-                                th:value="${fatorPotencia}">
+                        <option th:each="fatorPotencia : ${T(com.arquitetura.epcafe.enums.FatorPotencia).values()}"
+                            th:text="${fatorPotencia}"
+                            th:value="${fatorPotencia}">
                         </option>
                         </option>
                     </select>
@@ -76,10 +76,10 @@
     </div>
 
 
-    <div class="container">
-        <table class="table">
+    <div class="container mt-5">
+        <table class="table table-sm table-striped table-hover text-center" border="1">
             <thead>
-                <tr>
+                <tr class="fw-bold">
                     <td>Mês/Ano</td>
                     <td>Máquina</td>
                     <td>Combustível</td>
@@ -89,7 +89,49 @@
                     <td>Operações</td>
                 </tr>
             </thead>
+            <tbody>
+                <tr th:each="despesa : ${despesas}">
+                    <td th:text="${despesa.mesAno}"></td>
+                    <td th:text="${despesa.maquina.nome}"></td>
+                    <td>Combustivel</td>
+                    <td th:text="${despesa.fatorPotencia}"></td>
+                    <td th:text="${despesa.valorTotal}"></td>
+                    <td th:text="${despesa.precoCombustivel}"></td>
+                    <td>
+                        <a class="btn btn-warning text-light"><i class="bi bi-pencil-square"></i></a>
+                        <a class="btn btn-danger"><i class="bi bi-trash3-fill"></i></a>
+                    </td>
+                </tr>
+            </tbody>
         </table>
+
+        <div class="row justify-content-end align-items-top">
+            <div class="col col-auto">
+                <small class="d-inline">Mostrar:</small>
+            </div>
+            <div class="col col-auto">
+                <select class="form-select form-select-sm" >
+                    <option th:each="qtdPorPagina : ${qtdPorPaginaList}" th:value="${qtdPorPagina}" th:text="${qtdPorPagina}"></option>
+                </select>
+            </div>
+
+            <div class="col col-auto">
+                <nav>
+                    <ul class="pagination">
+                        <li class="page-item"><a
+                                th:class="${currPage == 1} ? 'page-link user-select-none disabled' : 'page-link user-select-none' "
+                                th:href="@{/lancarDespesaMaquina(size=${5}, page=${currPage-1})}">Anterior</a></li>
+                        <li th:each="pageNumber : ${pageNumbers}" class="page-item"><a
+                                th:href="@{/lancarDespesaMaquina(size=${5}, page=${pageNumber})}" th:text=${pageNumber}
+                                th:class="${pageNumber == currPage} ? 'page-link user-select-none active' : 'page-link user-select-none'"
+                                href="#"></a></li>
+                        <li class="page-item"><a
+                                th:class="${qtdPaginas == currPage} ? 'page-link user-select-none disabled' : 'page-link user-select-none'"
+                                th:href="@{/lancarDespesaMaquina(size=${5}, page=${currPage+1})}">Próxima</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
 
 
