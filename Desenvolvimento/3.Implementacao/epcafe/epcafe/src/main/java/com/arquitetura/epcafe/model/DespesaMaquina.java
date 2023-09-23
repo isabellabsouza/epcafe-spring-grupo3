@@ -5,7 +5,6 @@ import java.time.LocalDate;
 
 import com.arquitetura.epcafe.enums.FatorPotencia;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -13,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,6 +21,7 @@ import lombok.Setter;
 @Setter
 public class DespesaMaquina {
     
+    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -34,10 +35,10 @@ public class DespesaMaquina {
     @Enumerated(EnumType.STRING)
     private FatorPotencia fatorPotencia;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     private Unidade unidade;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     private Maquina maquina;
 
     private BigDecimal precoCombustivel;

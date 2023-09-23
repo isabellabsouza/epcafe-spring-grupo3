@@ -93,7 +93,7 @@
                 <tr th:each="despesa : ${despesas}">
                     <td th:text="${despesa.mesAno}"></td>
                     <td th:text="${despesa.maquina.nome}"></td>
-                    <td>Combustivel</td>
+                    <td th:text="${despesa.maquina.tipoCombustivel}"></td>
                     <td th:text="${despesa.fatorPotencia}"></td>
                     <td th:text="${despesa.valorTotal}"></td>
                     <td th:text="${despesa.precoCombustivel}"></td>
