@@ -11,7 +11,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,10 +35,10 @@ public class DespesaMaquina {
     @Enumerated(EnumType.STRING)
     private FatorPotencia fatorPotencia;
 
-    @OneToOne
+    @ManyToOne
     private Unidade unidade;
 
-    @OneToOne
+    @ManyToOne
     private Maquina maquina;
 
     private BigDecimal precoCombustivel;
