@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.arquitetura.epcafe.enums.TipoCombustivel;
 import com.arquitetura.epcafe.model.DespesaMaquina;
+import com.arquitetura.epcafe.model.Maquina;
 import com.arquitetura.epcafe.repository.DespesaMaquinaRepository;
 
 @Service
@@ -15,6 +16,13 @@ public class DespesaMaquinaService {
 
     @Autowired
     private DespesaMaquinaRepository despesaMaquinaRepository;
+
+    @Autowired
+    private MaquinaService maquinaService;
+
+    public List<Maquina> findAllMaquinas() {
+        return this.maquinaService.findAll();
+    }
 
     public void save(DespesaMaquina despesaMaquina) {
         despesaMaquina.setValorTotal(this.calcularValorTotal(despesaMaquina));

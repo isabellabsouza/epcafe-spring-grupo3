@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.arquitetura.epcafe.model.DespesaMaquina;
 import com.arquitetura.epcafe.model.Maquina;
 import com.arquitetura.epcafe.service.DespesaMaquinaService;
-import com.arquitetura.epcafe.service.MaquinaService;
 
 import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;
@@ -29,8 +28,7 @@ public class LancarDespesaMaquinaController {
     @Autowired
     private DespesaMaquinaService despesaMaquinaService;
 
-    @Autowired
-    private MaquinaService maquinaService;
+    
 
     @GetMapping("/lancarDespesaMaquina")
     public String lancarDespesaMaquina(DespesaMaquina despesaMaquina, Model model,  @RequestParam("page") Optional<Integer> page, @RequestParam("size") Optional<Integer> size, @RequestParam("qtdPorPagina") Optional<Integer> qtdPorPagina) {
@@ -39,7 +37,7 @@ public class LancarDespesaMaquinaController {
         int pageSize = size.orElse(5);
         int qtdPorPaginaInt = qtdPorPagina.orElse(5);
         
-        List<Maquina> maquinas = maquinaService.findAll();
+        List<Maquina> maquinas = despesaMaquinaService.findAllMaquinas();
 
 
         List<DespesaMaquina> despesas = despesaMaquinaService.findPaginated(currPage, pageSize);
